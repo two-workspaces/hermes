@@ -1,0 +1,83 @@
+{
+ "buckets": {},
+ "services": {
+  "9076ce92-7316-47f6-a7e6-cf5fe1a080a3": {
+   "icon": "https://raw.githubusercontent.com/NousResearch/hermes-agent/v2026.9.24/apps/desktop/assets/icon.png",
+   "name": "Hermes Agent",
+   "source": {
+    "image": "nousresearch/hermes-agent:v2026.9.24"
+   },
+   "deploy": {
+    "startCommand": "/opt/hermes/docker/entrypoint-dispatch.sh gateway run",
+    "healthcheckPath": "/api/status",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+   },
+   "variables": {
+    "HERMES_DASHBOARD_BASIC_AUTH_USERNAME": {
+     "isOptional": false,
+     "description": "Username for the dashboard login.",
+     "defaultValue": "admin"
+    },
+    "HERMES_DASHBOARD_BASIC_AUTH_PASSWORD": {
+     "isOptional": false,
+     "description": "Password for the dashboard login. Generated for you; it guards an agent that can run shell commands, so keep it long.",
+     "defaultValue": "${{secret(24)}}"
+    },
+    "HERMES_DASHBOARD_BASIC_AUTH_SECRET": {
+     "isOptional": false,
+     "description": "Signs login sessions so they survive restarts and redeploys. Changing it logs everyone out.",
+     "defaultValue": "${{secret(64)}}"
+    },
+    "OPENROUTER_API_KEY": {
+     "isOptional": true,
+     "description": "Optional. OpenRouter key, the quickest way to reach hundreds of models with one key. Any other provider (Anthropic, OpenAI, Nous Portal, DeepSeek, ...) can be added later on the dashboard's Keys page.",
+     "defaultValue": ""
+    },
+    "TELEGRAM_BOT_TOKEN": {
+     "isOptional": true,
+     "description": "Optional. Bot token from @BotFather to talk to your agent on Telegram.",
+     "defaultValue": ""
+    },
+    "TELEGRAM_ALLOWED_USERS": {
+     "isOptional": true,
+     "description": "Optional. Comma-separated numeric Telegram user IDs allowed to use the bot (ask @userinfobot for yours). Unknown users get a pairing code you approve on the dashboard's Pairing page.",
+     "defaultValue": ""
+    },
+    "MALLOC_ARENA_MAX": {
+     "isOptional": false,
+     "description": "Caps glibc malloc arenas for the Python processes: about 100 MB less memory with the Chat tab open, which keeps the service inside 1 GB.",
+     "defaultValue": "2"
+    },
+    "HERMES_DASHBOARD": {
+     "isOptional": false,
+     "description": "Runs the web dashboard next to the gateway. Do not change.",
+     "defaultValue": "1"
+    },
+    "HERMES_DASHBOARD_PORT": {
+     "isOptional": false,
+     "description": "Dashboard port. Do not change.",
+     "defaultValue": "9119"
+    },
+    "PORT": {
+     "isOptional": false,
+     "description": "Port Railway routes the domain and healthcheck to. Do not change.",
+     "defaultValue": "9119"
+    }
+   },
+   "networking": {
+    "serviceDomains": {
+     "<hasDomain>:9119": {
+      "port": 9119
+     }
+    },
+    "tcpProxies": {}
+   },
+   "volumeMounts": {
+    "90630883-5e1f-4afe-bf9e-3b7ed1e3d509": {
+     "mountPath": "/opt/data"
+    }
+   }
+  }
+ }
+}

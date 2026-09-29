@@ -1,0 +1,10 @@
+{
+  "name": "Hermes Agent | Official Image, Web Dashboard, Browser Chat, Telegram",
+  "short_name": "Hermes Agent Dashboard",
+  "description": "Nous Research's self-improving agent: web dashboard, browser chat, Telegram",
+  "category": "AI/ML",
+  "image": "https://raw.githubusercontent.com/NousResearch/hermes-agent/v2026.9.24/apps/desktop/assets/icon.png",
+  "card_desc": "Hermes Agent by Nous Research on the official image: password-protected web dashboard with in-browser chat, the Telegram/Discord/Slack gateway and cron, memory and skills on a volume.",
+  "deploy_marker": "nousresearch/hermes-agent:v2026.9.24",
+  "id": "f77e5da8-1c5b-4eb0-b03f-b0f2529d31c9"
+}
