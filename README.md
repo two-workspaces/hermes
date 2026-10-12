@@ -1,6 +1,6 @@
 # Deploy and Host Hermes Agent on Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/hermes-agent-dashboard?utm_medium=integration&utm_source=button&utm_campaign=hermes-agent-dashboard)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/hermes-agent-dashboard?referralCode=sLjDXb&utm_medium=integration&utm_source=button&utm_campaign=hermes-agent-dashboard)
 
 [Hermes Agent](https://github.com/NousResearch/hermes-agent) is Nous Research's self-improving AI agent. It remembers you across sessions, writes its own skills, runs scheduled jobs and talks to you on Telegram, Discord, Slack and more. This template runs the official image with the password-protected web dashboard, the in-browser chat and the messaging gateway, with all agent state stored on a volume.
 
