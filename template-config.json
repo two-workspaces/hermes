@@ -2,10 +2,10 @@
  "buckets": {},
  "services": {
   "9076ce92-7316-47f6-a7e6-cf5fe1a080a3": {
-   "icon": "https://raw.githubusercontent.com/NousResearch/hermes-agent/v2026.9.24/apps/desktop/assets/icon.png",
+   "icon": "https://raw.githubusercontent.com/NousResearch/hermes-agent/v0.22.2/apps/desktop/assets/icon.png",
    "name": "Hermes Agent",
    "source": {
-    "image": "nousresearch/hermes-agent:v2026.9.24"
+    "image": "nousresearch/hermes-agent:v0.22.2"
    },
    "deploy": {
     "startCommand": "/opt/hermes/docker/entrypoint-dispatch.sh gateway run",

@@ -40,7 +40,7 @@ Then open **Models** and pick a model. The default is Claude Opus 4.6, which is 
 
 **Telegram:** set `TELEGRAM_BOT_TOKEN`. Put your numeric Telegram user ID in `TELEGRAM_ALLOWED_USERS` (comma-separated for several). Anyone not on the list gets a pairing code instead of access, which you can approve on the **Pairing** page. Discord, Slack and other channels are configured on the **Channels** and **Keys** pages.
 
-**Upgrading:** change the image tag in the service's Settings → Source (e.g. `nousresearch/hermes-agent:v2026.9.24` → a newer tag) and redeploy. The volume keeps your data.
+**Upgrading:** change the image tag in the service's Settings → Source (e.g. `nousresearch/hermes-agent:v0.22.2` → a newer tag) and redeploy. The volume keeps your data.
 
 Notes and limits:
 
