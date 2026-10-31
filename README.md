@@ -6,7 +6,7 @@
 
 ## About Hosting Hermes Agent
 
-One service, one volume at `/opt/data`. The official `nousresearch/hermes-agent` image runs under s6 with two supervised processes. The **gateway** handles messaging platforms and the cron scheduler. The **web dashboard** gives you chat, sessions, models, API keys, skills, cron, logs and config from a browser. The dashboard is bound publicly and sits behind a username/password login. The password is generated for you on deploy. Memory, skills, sessions, config and API keys all live on the volume, so they survive redeploys and image upgrades.
+One service, one volume at `/opt/data`. The official `nousresearch/hermes-agent` image runs under s6 with two supervised processes. The **gateway** handles messaging platforms and the cron scheduler. It starts on its own, within 30 seconds, once a messaging channel or a scheduled job exists (from a variable or from the dashboard), so a fresh deploy only runs the dashboard. The **web dashboard** gives you chat, sessions, models, API keys, skills, cron, logs and config from a browser. The dashboard is bound publicly and sits behind a username/password login. The password is generated for you on deploy. Memory, skills, sessions, config and API keys all live on the volume, so they survive redeploys and image upgrades.
 
 ## Common Use Cases
 
@@ -44,7 +44,7 @@ Then open **Models** and pick a model. The default is Claude Opus 4.6, which is 
 
 Notes and limits:
 
-- 1 GB of RAM covers the dashboard, gateway and chat (about 400 MB idle, 650 MB chatting). Give it 2 GB or more if the agent uses the headless browser tool a lot. `MALLOC_ARENA_MAX=2` is preset to keep Python's memory in check on small plans.
+- A fresh deploy runs only the dashboard, about 280 MB idle. With the gateway running too it idles around 450 MB and reaches about 650 MB while chatting, so give it 1 GB once you connect a channel. Give it 2 GB or more if the agent uses the headless browser tool a lot. `MALLOC_ARENA_MAX=2` is preset to keep Python's memory in check on small plans.
 - The agent's terminal tool runs commands inside the container. The Docker terminal backend is not available on Railway.
 - The dashboard password protects an agent that can run shell commands. Keep it strong and rotate it by changing the variable and redeploying.
 
